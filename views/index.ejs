@@ -1,11 +1,84 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Product Control</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+      <style>
+          
+          botao {
+            font-size: 15px; /* Tamanho da fonte */
+            font-family: sans-serif;
+            background-color:#FE1CAC; /*** cor do fundo ***/
+            float:left;
+            height: 25px;
+            width: 220px;
+            padding: 3px;
+            color:#fff; /*** cor da fonte ***/
+            text-align: center;
+            margin-left: 4px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            transition-duration: .30s; 
+        }
+        
+        botao:hover{
+            color: #000; /*** cor da fonte ***/
+            letter-spacing: 6px;
+            transition-duration: .50s; 
+            background-color:#ffff4d;
+
+        }
+      
+      </style>
+      
+      
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <header> <h1>Product Control  👾</h1> </header>
+      <nav>
+          <a href="/product/"><botao>NOVO PRODUTO</botao></a><br><br><br>
+      </nav>
+      
+      <section> 
+
+          <table>   
+            <tr>
+                <th>Código do Produto</th>
+                <th>Tipo</th>
+                <th>Marca</th>
+                <th>Preço Sugerido</th>
+                <th>Ações</th>
+            </tr>
+            <% for (var i = 0; i < products.length; i++) { %>
+            <tr>
+                <td><%= products[i].codigo %> </td>
+                <td><%= products[i].tipo %> </td>
+                <td><%= products[i].marca %> </td>
+                <td><%= products[i].preco_sugerido %> </td>
+                <td><a href="/product/view/<%= products[i].codigo %>" target="_blank" rel="noopener" class="btn btn-sm btn-success" title="Visualizar"><big><big>🔍</big></big></a>
+                    <a href="/product/edit/<%= products[i].codigo %>" target="_blank" rel="noopener" class="btn btn-sm btn-success"><big><big>📝</big></big></a>
+                    <a href="/delete/<%= products[i].codigo %>" class="btn btn-sm btn-danger"><big><big>🚮</big></big></a></td>
+            </tr>
+
+            <% }; %>
+          </table>
+          
+      </section>
+    
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

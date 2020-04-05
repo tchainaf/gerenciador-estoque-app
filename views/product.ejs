@@ -3,11 +3,83 @@
     <head>
         <link rel='stylesheet' href='/stylesheets/style.css' />
         <h2>Products</h2>
+        
+        <style>
+                        
+        </style>
+        
+        
     </head>
 
     <body>
-        <% if(locals.error) { %>
-        <div class="alert alert-danger"><%= error %></div>
-        <% } %>
+
+        <section>
+            <div class="form-container">
+                <h2>Produto</h2>
+                <% if(locals.error) { %>
+                    <div class="alert alert-danger"><%= error %></div>
+                <% } %>
+                
+                <form method="post">
+                    <% if(locals.product.codigo) { %>
+                        <label for="codigo">Codigo do Produto: <%= product.codigo %></label>
+                    <% } %>
+             
+                    
+                    <div class="form-group">
+                        <label for="data_entrada">Data Entrada</label>
+                        <input type="text" name="data_entrada" id="data_entrada" class="form-control" value="<%= locals.product.data_entrada || '' %>" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo</label>
+                        <input type="text" name="tipo" id="tipo" class="form-control" value="<%= locals.product.tipo || '' %>" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="marca">Marca</label>
+                        <input type="text" name="marca" id="marca" class="form-control" value="<%= locals.product.marca || '' %>" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="caracteristicas">Caracteristicas</label>
+                        <input type="text" name="caracteristicas" id="caracteristicas" class="form-control" value="<%= locals.product.caracteristicas || '' %>" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="tamanho">Tamanho</label>
+                        <input type="text" name="tamanho" id="tamanho" class="form-control" value="<%= locals.product.tamanho || '' %>" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="cor">Cor</label>
+                        <input type="text" name="cor" id="cor" class="form-control" value="<%= locals.product.cor || '' %>" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="valor_etiqueta_c">Valor Etiqueta</label>
+                        <input type="text" name="valor_etiqueta_c" id="valor_etiqueta_c" class="form-control" value="<%= locals.product.valor_etiqueta_c || '' %>" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="valor_pago_c">Valor Pago</label>
+                        <input type="text" name="valor_pago_c" id="valor_pago_c" class="form-control" value="<%= locals.product.valor_pago_c || '' %>" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="valor_margem">Valor Margem</label>
+                        <input type="text" name="valor_margem" id="valor_margem" class="form-control" value="<%= locals.product.valor_margem || '' %>" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="preco_sugerido">Preço Sugerido</label>
+                        <input type="text" name="preco_sugerido" id="preco_sugerido" class="form-control" value="<%= locals.product.preco_sugerido || '' %>" required />
+                    </div>
+                </form>
+                
+                <% if(!locals.view) { %>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                <% } %>
+                
+                
+            </div>
+
+        </section>
+        
+        
+        
     </body>
 </html>
