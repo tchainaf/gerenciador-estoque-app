@@ -1,8 +1,58 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
-a {
-  color: #00B7FF;
-}
+              body {
+                  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSnzA_0fTLFcTQ-uRiDz2NUTFx1gNrfcEWrO3CQMlhAUefrkIZX&usqp=CAU");
+                  background-size: repeat;
+                  background-color: #F5FFFA;
+                  padding: 40px;
+                  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+              }
+
+              header{
+                  margin-top: -50px;
+                  left: 0px;
+                  right: 0px;
+                  padding: 1px;
+                  background-color: #87CEEB;
+                  border-bottom: solid 4px #000;
+              }
+
+              h1{
+                font-family: "Lucida Console", Monaco, monospace;
+                float: center;
+                text-align: center;
+                font-size: 60px;
+                text-shadow: #000 1px 1px 3px;
+                color: white;
+              }
+
+              footer {
+                background-color: #ADD8E6;
+                width: 100%;
+                position:absolute;
+                bottom:0;
+                width:100%; 
+                left: 0;
+                padding-left: 10px;
+              }  
+
+              a{
+                  color: #1E90FF;
+              }
+
+              botao {
+                  font-size: 14px;
+                  background-color: #F5FFFA;
+                  border-radius: 5px;
+                  padding: 10px;
+                  margin: 10px;
+                  float: center;
+                  box-shadow: #000 1px 1px 3px;
+              }
+
+             botao:hover{
+                color: #000; 
+                letter-spacing: 1px;
+                transition-duration: .50s; 
+                background-color:#f5f5f5;
+              } 
+

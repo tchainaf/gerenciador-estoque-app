@@ -1,72 +1,88 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Product Control</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-      <style>
-          
-          botao {
-            font-size: 15px; /* Tamanho da fonte */
-            font-family: sans-serif;
-            background-color:#FE1CAC; /*** cor do fundo ***/
-            float:left;
-            height: 25px;
-            width: 220px;
-            padding: 3px;
-            color:#fff; /*** cor da fonte ***/
-            text-align: center;
-            margin-left: 4px;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-            transition-duration: .30s; 
-        }
-        
-        botao:hover{
-            color: #000; /*** cor da fonte ***/
-            letter-spacing: 6px;
-            transition-duration: .50s; 
-            background-color:#ffff4d;
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Gerenciador de Estoque</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+          <style>
 
-        }
-      
-      </style>
-      
-      
-  </head>
-  <body>
-    <header> <h1>Product Control  👾</h1> </header>
-      <nav>
-          <a href="/product/"><botao>NOVO PRODUTO</botao></a><br><br><br>
-      </nav>
-      
-      <section> 
 
-          <table>   
-            <tr>
-                <th>Código do Produto</th>
-                <th>Tipo</th>
-                <th>Marca</th>
-                <th>Preço Sugerido</th>
-                <th>Ações</th>
-            </tr>
-            <% for (var i = 0; i < products.length; i++) { %>
-            <tr>
-                <td><%= products[i].codigo %> </td>
-                <td><%= products[i].tipo %> </td>
-                <td><%= products[i].marca %> </td>
-                <td><%= products[i].preco_sugerido %> </td>
-                <td><a href="/product/view/<%= products[i].codigo %>" target="_blank" rel="noopener" class="btn btn-sm btn-success" title="Visualizar"><big><big>🔍</big></big></a>
-                    <a href="/product/edit/<%= products[i].codigo %>" target="_blank" rel="noopener" class="btn btn-sm btn-success"><big><big>📝</big></big></a>
-                    <a href="/delete/<%= products[i].codigo %>" class="btn btn-sm btn-danger"><big><big>🚮</big></big></a></td>
-            </tr>
+              section {
+                  background-color: #fff;
+                  margin-top: 0px;
+                  padding: 10px;
+              }
 
-            <% }; %>
-          </table>
-          
-      </section>
-    
-  </body>
-</html>
+              table {
+                  float: center;
+                  display: inline-block;
+                  background-color: #fff;
+                  width: 100%;
+                  margin: 5px;
+              }
+
+              th, td{
+                  padding: 2px;
+                  text-align: left;
+                  border-bottom: 1px solid #ddd;
+                  border-collapse: collapse;
+              }
+
+              th{
+                  height: 30px;
+                  background-color: #87CEFA;
+                  font-size: 16px;
+                  font-family: Verdana, Geneva, sans-serif;
+                  font-style: bold;
+                  text-align: center;
+              }
+
+              tr:hover {
+                  background-color: #f5f5f5;
+              }
+
+
+          </style>
+
+
+      </head>
+      <body>
+        <header> <h1>Gerenciador de Estoque</h1> </header>
+
+
+          <section> 
+              <a href="/product/"><botao>➕ NOVO PRODUTO</botao></a>
+              <br><br><p>Lista de produtos abaixo:</p>
+              <div style="overflow-x:auto;">
+                  <table>   
+                    <tr>
+                        <th style="width:200px" >Código do Produto</th>
+                        <th style="width:350px">Tipo</th>
+                        <th style="width:250px">Marca</th>
+                        <th style="width:200px">Preço Sugerido</th>
+                        <th style="width:150px">Ações</th>
+                    </tr>
+                    <% for (var i = 0; i < products.length; i++) { %>
+                    <tr>
+                        <td><%= products[i].codigo %> </td>
+                        <td><%= products[i].tipo %> </td>
+                        <td><%= products[i].marca %> </td>
+                        <td><%= products[i].preco_sugerido %> </td>
+                        <td><a href="/product/view/<%= products[i].codigo %>" target="_blank" rel="noopener" class="btn btn-sm btn-success" title="Visualizar"><big><big>🔍</big></big></a>
+                            <a href="/product/edit/<%= products[i].codigo %>" target="_blank" rel="noopener" class="btn btn-sm btn-success"><big><big>📝</big></big></a>
+                            <a href="/delete/<%= products[i].codigo %>" class="btn btn-sm btn-danger"><big><big>🚮</big></big></a></td>
+                    </tr>
+
+                    <% }; %>
+                  </table>
+              </div>
+          </section>
+
+
+        <footer>
+          <h4>Trabalho desenvolvido por: Eloah Noguchi 082160005 • Diego de Paula 082160010 • Thainá França 082160022 • Sabrina Monteiro 082160041</h4>
+          </footer>
+      </body>
+    </html>
 
 
 
