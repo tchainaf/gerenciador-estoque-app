@@ -1,73 +1,96 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Gerenciador de Estoque</title>
         <link rel='stylesheet' href='/stylesheets/style.css' />
-        <h2>Products</h2>
         
         <style>
-                        
+            
+            form{ 
+                padding: 8px;
+                background-color: white;
+                font-size: 14px;
+            }
+            
+            input{
+                font-size: 14px;
+                background-color: #f5f5f5;
+            }
+            
+            h3{
+                background-color: #f5f5f5;
+                padding: 3px;
+            }
+            
+            btn btn-primary{
+                font-size: 16px;
+            }
+            
         </style>
         
         
     </head>
 
     <body>
+        <header> <h1>Gerenciador de Estoque</h1> </header>
 
         <section>
+            <br>
+            <botao><a href="/index.ejs">Voltar</a></botao>
             <div class="form-container">
-                <h2>Produto</h2>
+                <h2>Detalhes do Produto</h2>
                 <% if(locals.error) { %>
                     <div class="alert alert-danger"><%= error %></div>
                 <% } %>
                 
+                <% if(locals.product.codigo) { %>
+                       <h3> <label for="codigo">Codigo do Produto: <%= product.codigo %></label></h3>
+                <% } %>
+                
                 <form method="post">
-                    <% if(locals.product.codigo) { %>
-                        <label for="codigo">Codigo do Produto: <%= product.codigo %></label>
-                    <% } %>
-             
                     
                     <div class="form-group">
-                        <label for="data_entrada">Data Entrada</label>
-                        <input type="text" name="data_entrada" id="data_entrada" class="form-control" value="<%= locals.product.data_entrada || '' %>" required />
+                        <label for="data_entrada">Data de Entrada: </label>
+                        <input type="text" style="width:80px" name="data_entrada" id="data_entrada" class="form-control" value="<%= locals.product.data_entrada || '' %>" required />
                     </div>
+                    <br>
                     <div class="form-group">
-                        <label for="tipo">Tipo</label>
+                        <label for="tipo">Tipo: </label>
                         <input type="text" name="tipo" id="tipo" class="form-control" value="<%= locals.product.tipo || '' %>" required />
-                    </div>
+                    </div><br>
                     <div class="form-group">
-                        <label for="marca">Marca</label>
-                        <input type="text" name="marca" id="marca" class="form-control" value="<%= locals.product.marca || '' %>" required />
-                    </div>
+                        <label for="marca">Marca: </label>
+                        <input type="text" style="width:300px" name="marca" id="marca" class="form-control" value="<%= locals.product.marca || '' %>" required />
+                    </div><br>
                     <div class="form-group">
-                        <label for="caracteristicas">Caracteristicas</label>
-                        <input type="text" name="caracteristicas" id="caracteristicas" class="form-control" value="<%= locals.product.caracteristicas || '' %>" required />
-                    </div>
+                        <label for="caracteristicas">Caracteristicas: </label>
+                        <input type="text" style="width:500px" name="caracteristicas" id="caracteristicas" class="form-control" value="<%= locals.product.caracteristicas || '' %>" required />
+                    </div><br>
                     <div class="form-group">
-                        <label for="tamanho">Tamanho</label>
-                        <input type="text" name="tamanho" id="tamanho" class="form-control" value="<%= locals.product.tamanho || '' %>" required />
-                    </div>
+                        <label for="tamanho">Tamanho: </label>
+                        <input type="text" style="width:25px" name="tamanho" id="tamanho" class="form-control" value="<%= locals.product.tamanho || '' %>" required />
+                    </div><br>
                     <div class="form-group">
-                        <label for="cor">Cor</label>
+                        <label for="cor">Cor: </label>
                         <input type="text" name="cor" id="cor" class="form-control" value="<%= locals.product.cor || '' %>" required />
-                    </div>
+                    </div><br>
                     <div class="form-group">
-                        <label for="valor_etiqueta_c">Valor Etiqueta</label>
-                        <input type="text" name="valor_etiqueta_c" id="valor_etiqueta_c" class="form-control" value="<%= locals.product.valor_etiqueta_c || '' %>" required />
-                    </div>
+                        <label for="valor_etiqueta_c">Valor da Etiqueta: </label>
+                        <input type="text" style="width:80px" name="valor_etiqueta_c" id="valor_etiqueta_c" class="form-control" value="<%= locals.product.valor_etiqueta_c || '' %>" required />
+                    </div><br>
                     <div class="form-group">
-                        <label for="valor_pago_c">Valor Pago</label>
-                        <input type="text" name="valor_pago_c" id="valor_pago_c" class="form-control" value="<%= locals.product.valor_pago_c || '' %>" required />
-                    </div>
+                        <label for="valor_pago_c">Valor Pago: </label>
+                        <input type="text" style="width:80px" name="valor_pago_c" id="valor_pago_c" class="form-control" value="<%= locals.product.valor_pago_c || '' %>" required />
+                    </div><br>
                     <div class="form-group">
-                        <label for="valor_margem">Valor Margem</label>
-                        <input type="text" name="valor_margem" id="valor_margem" class="form-control" value="<%= locals.product.valor_margem || '' %>" required />
-                    </div>
+                        <label for="valor_margem">Valor de Margem: </label>
+                        <input type="text" style="width:80px" name="valor_margem" id="valor_margem" class="form-control" value="<%= locals.product.valor_margem || '' %>" required />
+                    </div><br>
                     <div class="form-group">
-                        <label for="preco_sugerido">Preço Sugerido</label>
-                        <input type="text" name="preco_sugerido" id="preco_sugerido" class="form-control" value="<%= locals.product.preco_sugerido || '' %>" required />
+                        <label for="preco_sugerido">Preço Sugerido: </label>
+                        <input type="text" style="width:80px" name="preco_sugerido" id="preco_sugerido" class="form-control" value="<%= locals.product.preco_sugerido || '' %>" required />
                     </div>
                 </form>
-                
                 <% if(!locals.view) { %>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Salvar</button>
@@ -75,12 +98,13 @@
                 <% } %>
                 
             </div>
+           
 
-            <botao><a href="/index/">Voltar</a></botao>
-            
         </section>
-        
-        
+
+      <footer>
+      <h4>Trabalho desenvolvido por: Eloah Noguchi 082160005 • Diego de Paula 082160010 • Thainá França 082160022 • Sabrina Monteiro 082160041</h4>
+      </footer>      
         
     </body>
 </html>
