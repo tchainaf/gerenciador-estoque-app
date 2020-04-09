@@ -3,30 +3,44 @@ var router = express.Router();
 var request = require('request');
 var config = require('../config.json');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.render('product');
-});
+router.post('/:id', function (req, res) {
+    if (req.params.id != 0) { //update
+        request.put({
+            url: config.apiUrl + '/product/' + req.params.id,
+            form: req.body,
+            json: true
+        }, function (error, response, body) {
+            if (error) {
+                return res.render('product', { error: 'An error occurred' });
+            }
 
-router.post('/', function (req, res) {
-  request.post({
-      url: config.apiUrl + '/product',
-      form: req.body,
-      json: true
-  }, function (error, response, body) {
-      if (error) {
-          return res.render('product', { error: 'An error occurred' });
-      }
+            if (response.statusCode !== 200) {
+                return res.render('product', {
+                    error: response.body
+                });
+            }
 
-      if (response.statusCode !== 200) {
-          return res.render('product', {
-              error: response.body
-          });
-      }
+            return res.redirect('/');
+        });
+    } else { //create
+        request.post({
+            url: config.apiUrl + '/product',
+            form: req.body,
+            json: true
+        }, function (error, response, body) {
+            if (error) {
+                return res.render('product', { error: 'An error occurred' });
+            }
 
-      req.session.success = 'Post successful';
-      return res.redirect('/');
-  });
+            if (response.statusCode !== 200) {
+                return res.render('product', {
+                    error: response.body
+                });
+            }
+
+            return res.redirect('/');
+        });
+    }
 });
 
 module.exports = router;
