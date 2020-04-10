@@ -12,14 +12,19 @@ router.get('/', function (req, res, next) {
     json: true
   }, function (error, response, body) {
     if (error) {
-      return res.render('index', { error: 'An error occurred' });
+      return res.render('error', {
+        message: "Não foi possível acessar a API",
+        error
+      });
     }
 
     if (response.statusCode !== 200) {
-      return res.render('index', {
+      return res.render('error', {
+        message: "Não foi possível acessar o banco de dados",
         error: response.body
       });
     }
+
     products = response.body;
     res.render('index', { products });
   });
@@ -52,11 +57,15 @@ router.get('/delete/:i', function (req, res) {
     json: true
   }, function (error, response, body) {
     if (error) {
-      return res.render('product', { error: 'An error occurred' });
+      return res.render('error', {
+        message: "Não foi possível acessar a API",
+        error
+      });
     }
 
     if (response.statusCode !== 200) {
-      return res.render('product', {
+      return res.render('error', {
+        message: "Não foi possível acessar o banco de dados",
         error: response.body
       });
     }

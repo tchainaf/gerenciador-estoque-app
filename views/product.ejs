@@ -25,6 +25,10 @@
         btn btn-primary {
             font-size: 16px;
         }
+
+        .alerta {
+            color: red;
+        }
     </style>
     <script>
         function setValorMargem() {
@@ -46,7 +50,7 @@
             <h2>Detalhes do Produto</h2>
 
             <% if(locals.error) { %>
-            <div class="alert alert-danger"><%= error %></div>
+            <div class="alerta"><big><big>⚠</big></big> <%= error %></div>
             <% } %>
 
             <% if(locals.product._id != 0) { %>
@@ -57,7 +61,7 @@
 
                 <div class="form-group">
                     <label for="data_entrada">Data de Entrada: </label>
-                    <input type="text" style="width:80px" name="data_entrada" id="data_entrada" class="form-control"
+                    <input type="date" style="width:120px" name="data_entrada" id="data_entrada" class="form-control"
                         value="<%= locals.product.data_entrada || '' %>" required />
                 </div>
                 <br>
