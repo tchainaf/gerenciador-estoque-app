@@ -4,6 +4,7 @@ var request = require('request');
 var config = require('../config.json');
 
 router.post('/:id', function (req, res) {
+    req.body.valor_margem = req.body.valor_pago_c * 2;
     if (req.params.id != 0) { //update
         request.put({
             url: config.apiUrl + '/product/' + req.params.id,
